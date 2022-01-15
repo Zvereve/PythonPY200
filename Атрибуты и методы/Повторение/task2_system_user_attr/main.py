@@ -3,7 +3,10 @@ class Glass:
         self.capacity_volume = capacity_volume
         self.occupied_volume = occupied_volume
 
+    def __print_capacity(self):
+
 
 if __name__ == "__main__":
     glass = Glass(200, 0)
+    print(glass.__dict__)
     print(dir(glass))
