@@ -39,7 +39,7 @@ class DoubleLinkedNode(Node):
 
     def __init__(self, value: Any, prev: Optional["Node"] = None, next_: Optional["Node"] = None):
         """
-        Создаем новый узел для двуходносвязного списка
+        Создаем новый узел для двухсвязного списка
         :param prev: предыдущий узел если есть
         """
         super().__init__(value, next_)

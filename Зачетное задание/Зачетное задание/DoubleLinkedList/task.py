@@ -1,6 +1,7 @@
 from typing import Any, Iterable, Optional
 
 from node import Node, DoubleLinkedNode
+import collections.abc
 
 
 class LinkedList:
@@ -13,6 +14,26 @@ class LinkedList:
         if data is not None:
             for value in data:
                 self.append(value)
+
+    def count(self, value: Any) -> int:
+        y = 0
+        for x in range(self.len):
+            if str(value) == str(self.step_by_step_on_nodes(x)):
+                y += 1
+        return y
+
+    def extend(self, value: list) -> None:
+        if not isinstance(value, list):
+            raise TypeError
+        for x in value:
+            self.insert(self.len + 1, x)
+
+    def pop(self, index=None) -> Any:
+        if index == None:
+            index = self.len - 1
+        x = self.step_by_step_on_nodes(index)
+        self.__delitem__(index)
+        return x
 
     def append(self, value: Any):
         """ Добавление элемента в конец связного списка. """
@@ -75,10 +96,8 @@ class LinkedList:
         if not 0 <= index < self.len:
             raise IndexError
 
-
     def __len__(self):
         return self.len
-
 
     def insert(self, index: int, value: Any) -> None:
         """ Метод вставки в связаный узел по индексу """
@@ -101,7 +120,14 @@ class LinkedList:
             self.linked_nodes(new_node, next_node)
             self.len += 1
 
+    def clear(self):
+        self.len = 0
+        self.head = None
+        self.tail = None
+
+
 class DoubleLinkedList(LinkedList):
+    node_class = DoubleLinkedNode
 
     @staticmethod
     def linked_nodes(left_node: DoubleLinkedNode, right_node: Optional[DoubleLinkedNode] = None) -> None:
@@ -126,4 +152,5 @@ if __name__ == "__main__":
     print(ll)
     print(ll.__len__())
     lll = DoubleLinkedNode([1, 2, 3])
-    print(lll)
+    ll.clear()
+    print(ll)
