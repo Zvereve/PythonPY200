@@ -10,14 +10,14 @@ files:
   visible: true
   placeholders:
   - offset: 2194
-    length: 56
+    length: 143
     placeholder_text: '...  # TODO реализовать конкатенацию последовательностей'
     initial_state:
       length: 56
       offset: 2194
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       if not isinstance(other, LinkedList):
                   raise TypeError
@@ -150,5 +150,8 @@ files:
             self.is_valid(next_)
             self._next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 29 Jan 2022 07:25:19 UTC
 record: -1

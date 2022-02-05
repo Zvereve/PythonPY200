@@ -11,15 +11,15 @@ files:
   visible: true
   placeholders:
   - offset: 2360
-    length: 89
+    length: 167
     placeholder_text: '# TODO определить метод сложения, когда LinkedList находится
       справа от оператора сложения'
     initial_state:
       length: 89
       offset: 2360
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       def __radd__(self, other: list) -> "LinkedList":
               if not isinstance(other, list):
@@ -162,5 +162,8 @@ files:
             self.is_valid(next_)
             self._next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 29 Jan 2022 07:33:03 UTC
 record: -1

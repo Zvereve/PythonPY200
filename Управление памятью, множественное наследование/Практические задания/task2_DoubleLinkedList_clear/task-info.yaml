@@ -30,7 +30,7 @@ files:
       length: 47
       offset: 493
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
     encrypted_possible_answer: self._prev = None if prev is None else weakref.ref(prev)
   text: |

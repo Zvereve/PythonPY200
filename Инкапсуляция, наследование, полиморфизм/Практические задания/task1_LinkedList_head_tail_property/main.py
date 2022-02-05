@@ -7,9 +7,9 @@ from node import Node
 class LinkedList:
     def __init__(self, data: Iterable = None):
         """Конструктор связного списка"""
-        self.len = 0
-        self.head: Optional[Node] = None
-        self.tail = self.head
+        self._len = 0
+        self._head: Optional[Node] = None
+        self._tail = self._head
 
         if data is not None:
             for value in data:
@@ -19,23 +19,23 @@ class LinkedList:
         """ Добавление элемента в конец связного списка. """
         append_node = Node(value)
 
-        if self.head is None:
-            self.head = self.tail = append_node
+        if self._head is None:
+            self._head = self._tail = append_node
         else:
-            self.linked_nodes(self.tail, append_node)
-            self.tail = append_node
+            self.linked_nodes(self._tail, append_node)
+            self._tail = append_node
 
-        self.len += 1
+        self._len += 1
 
     def step_by_step_on_nodes(self, index: int) -> Node:
         """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
         if not isinstance(index, int):
             raise TypeError()
 
-        if not 0 <= index < self.len:  # для for
+        if not 0 <= index < self._len:  # для for
             raise IndexError()
 
-        current_node = self.head
+        current_node = self._head
         for _ in range(index):
             current_node = current_node.next
 
@@ -78,5 +78,5 @@ if __name__ == "__main__":
     print(ll._head)
     print(ll._tail)
 
-    print(ll.len)
+    print(ll._len)
     print(ll._len)
