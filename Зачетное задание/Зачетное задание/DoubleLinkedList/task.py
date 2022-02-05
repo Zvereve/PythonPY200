@@ -174,4 +174,4 @@ if __name__ == "__main__":
     print(ll3)
     ll3 .clear()
     print(ll3)
-
+    print(lll)
