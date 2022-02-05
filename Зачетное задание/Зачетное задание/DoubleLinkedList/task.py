@@ -1,7 +1,6 @@
 from typing import Any, Iterable, Optional
 
 from node import Node, DoubleLinkedNode
-import collections.abc
 
 
 class LinkedList:
@@ -70,6 +69,21 @@ class LinkedList:
         :param right_node: Правый или следующий узел
         """
         left_node.next = right_node
+
+    def __add__(self, other: "LinkedList") -> "LinkedList":
+        if not isinstance(other, LinkedList):
+            raise TypeError
+
+        for item in other:
+            self.append(item)
+
+        return self
+
+    def __radd__(self, other: list) -> "LinkedList":
+        if not isinstance(other, list):
+            raise TypeError
+
+        return LinkedList(other + self.to_list())
 
     def __getitem__(self, index: int) -> Any:
         """ Метод возвращает значение узла по указанному индексу. """
@@ -147,10 +161,17 @@ class DoubleLinkedList(LinkedList):
         self.len += 1
 
 
+
 if __name__ == "__main__":
     ll = LinkedList([1, 2, 3])
-    print(ll)
+    l2 = LinkedList([1, 2, 3])
+    print(ll + l2)
     print(ll.__len__())
-    lll = DoubleLinkedNode([1, 2, 3])
-    ll.clear()
-    print(ll)
+
+    lll = DoubleLinkedList([1, 2, 3])
+    ll3 = DoubleLinkedList([4, 5, 6])
+    print(lll + ll3)
+    print(ll3)
+    ll3 .clear()
+    print(ll3)
+
